@@ -14,19 +14,9 @@ class CategorieController extends Controller
      */
     public function index()
     {
-        //
+
         $categories = Categorie::all()->toArray();
         return array_reverse($categories);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -60,29 +50,19 @@ class CategorieController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Categorie  $categorie
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Categorie $categorie)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Categorie  $categorie
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         //
         $categorie = Categorie::find($id);
         $categorie->update($request->all());
         return response()->json('Catégorie MAJ !');
+
     }
 
     /**
@@ -98,4 +78,6 @@ class CategorieController extends Controller
         $categorie->delete();
         return response()->json('Catégorie supprimée !');
     }
+
+
 }
