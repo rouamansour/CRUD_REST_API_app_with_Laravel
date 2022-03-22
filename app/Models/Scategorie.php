@@ -13,6 +13,11 @@ class Scategorie extends Model
     ];
     public function categories()
     {
-    return $this->belongsTo(Categorie::class,"categorieID");
+        return $this->belongsTo(Categorie::class,"categorieID");
     }
+    public function article()
+    {
+        return $this->hasMany(Article::class,"scategorieID");
+    }
+
 }
